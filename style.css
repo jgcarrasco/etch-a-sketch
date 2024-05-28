@@ -1,20 +1,39 @@
 body {
-    display: flex;
-    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    width: 100vw;
+    margin: 0px;
 }
 
 .container {
     background-color: lightgray;
     display: flex;
     flex-wrap: wrap;
-    padding: 8px;
-    width: 400px;
-    height: 400px;
+    padding: 12px;
+    width: 600px;
+    height: 600px;
+    margin: 24px;
 }
 
 .squarediv {
-    height: 25px;
-    width: 25px;
     background-color: white;
     outline: 1px solid black;
+}
+
+.painted.squarediv {
+    background-color: black;
+}
+
+.header-background,
+.footer-background {
+    background-color: lightyellow;
+    display: flex;
+    justify-content: center;
+    align-tracks: center;
+    font-size: 32px;
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-tracks: center;
 }
