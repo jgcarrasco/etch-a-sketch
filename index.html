@@ -8,17 +8,36 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="header-background">
+    <header class="header-background">
         <div class="header">
             Best Etch-a-Sketch Ever
         </div>
+    </header>
+    <div class="main">
+        <div class="background">
+            <div class="panel">
+                <button id="grid-button">Change grid</button>
+            </div>
+        </div>
+        
+        <div class="background">
+            <div class="container"></div>
+        </div>
     </div>
-    <div class="background">
-        <div class="container"></div>
-    </div>
-    <div class="footer-background">
+    <footer class="footer-background">
         <div class="footer">
             jgcarrasco
+        </div>
+    </footer>
+
+    <div class="full-screen hidden">
+        <div class="popup">
+            <p>Introduce new grid size:</p>
+            <div>
+                <input type="text">
+                <button id="submit-button">Enter</button>
+            </div>
+            
         </div>
     </div>
 </body>
