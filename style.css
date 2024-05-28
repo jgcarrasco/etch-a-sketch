@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    width: 400px;
+    height: 400px;
+}
+
+.squarediv {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    outline: 1px solid black;
+}
