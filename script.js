@@ -23,24 +23,26 @@ container.addEventListener("mouseover", (event) => {
 
 // Popup
 const gridbutton = document.querySelector("#grid-button");
-const popup = document.querySelector(".full-screen")
+const popup = document.querySelector(".full-screen");
+const submitbutton = document.querySelector("#submit-button");
+const gridinput = document.querySelector("input");
 
 gridbutton.addEventListener("click", () => {
     popup.classList.remove("hidden");
+    gridinput.focus();
 });
 
-const submitbutton = document.querySelector("#submit-button");
 
 submitbutton.addEventListener("click", () => {
-    const grid_size = document.querySelector("input").value;
+    const grid_size = gridinput.value;
     console.log(grid_size);
-    if ((grid_size > 100) || (grid_size < 0)) {
+    if ((grid_size > 100) || (grid_size < 1)) {
         if (!document.querySelector("#popup-error")){
             const popup_window = document.querySelector(".popup");
             const content = document.createElement("div");
             content.id = "popup-error";
             content.style.color = "red";
-            content.appendChild(document.createTextNode("Enter a valid number between 0-100"));
+            content.appendChild(document.createTextNode("Enter a valid number between 1-100"));
             popup_window.appendChild(content);
         }
     } else {
