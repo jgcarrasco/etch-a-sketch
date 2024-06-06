@@ -21,6 +21,8 @@ container.addEventListener("mouseover", (event) => {
     event.target.classList.add("painted");
 });
 
+// NOTE: All the functionality below could be made easier with the prompt
+// method! I did it manually because I didn't know about it (lol).
 // Popup
 const gridbutton = document.querySelector("#grid-button");
 const popup = document.querySelector(".full-screen");
