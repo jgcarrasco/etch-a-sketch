@@ -35,10 +35,11 @@ gridbutton.addEventListener("click", () => {
 
 submitbutton.addEventListener("click", () => {
     const grid_size = gridinput.value;
+    const popup_window = document.querySelector(".popup");
+
     console.log(grid_size);
     if ((grid_size > 100) || (grid_size < 1)) {
         if (!document.querySelector("#popup-error")){
-            const popup_window = document.querySelector(".popup");
             const content = document.createElement("div");
             content.id = "popup-error";
             content.style.color = "red";
@@ -48,5 +49,9 @@ submitbutton.addEventListener("click", () => {
     } else {
         generate_grid(grid_size);
         popup.classList.add("hidden");
+        const content = document.querySelector("#popup-error");
+        if (content){
+            popup_window.removeChild(content);
+        }
     }
 })
