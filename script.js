@@ -26,6 +26,7 @@ const gridbutton = document.querySelector("#grid-button");
 const popup = document.querySelector(".full-screen");
 const submitbutton = document.querySelector("#submit-button");
 const gridinput = document.querySelector("input");
+const popup_window = document.querySelector(".popup");
 
 gridbutton.addEventListener("click", () => {
     popup.classList.remove("hidden");
@@ -43,9 +44,8 @@ function close_popup() {
 }        
 
 // change grid size
-submitbutton.addEventListener("click", () => {
+function change_grid_size() {
     const grid_size = gridinput.value;
-    const popup_window = document.querySelector(".popup");
 
     console.log(grid_size);
     if ((grid_size > 100) || (grid_size < 1)) {
@@ -60,11 +60,18 @@ submitbutton.addEventListener("click", () => {
         generate_grid(grid_size);
         close_popup();
     }
-})
+}  
+
+submitbutton.addEventListener("click", change_grid_size);
+gridinput.addEventListener("keypress", (e) => {
+    if ((document.activeElement === gridinput) & (e.key === "Enter")) {
+        change_grid_size();
+    }
+});
 
 // exit popup when clicking outside
 popup.addEventListener("click", (e) => {
-    if (e.target == popup) {
+    if (e.target === popup) {
         close_popup();
     }
 }); 
