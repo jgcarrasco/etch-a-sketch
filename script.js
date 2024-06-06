@@ -32,7 +32,17 @@ gridbutton.addEventListener("click", () => {
     gridinput.focus();
 });
 
+function close_popup() {
+    popup.classList.add("hidden");
+    gridinput.value = null;
+    // Remove the previous error popup (if present)
+    const content = document.querySelector("#popup-error");
+    if (content){
+        popup_window.removeChild(content);
+    }   
+}        
 
+// change grid size
 submitbutton.addEventListener("click", () => {
     const grid_size = gridinput.value;
     const popup_window = document.querySelector(".popup");
@@ -48,10 +58,15 @@ submitbutton.addEventListener("click", () => {
         }
     } else {
         generate_grid(grid_size);
-        popup.classList.add("hidden");
-        const content = document.querySelector("#popup-error");
-        if (content){
-            popup_window.removeChild(content);
-        }
+        close_popup();
     }
 })
+
+// exit popup when clicking outside
+popup.addEventListener("click", (e) => {
+    if (e.target == popup) {
+        close_popup();
+    }
+}); 
+
+
