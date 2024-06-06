@@ -18,7 +18,6 @@ function generate_grid(grid_size) {
 generate_grid(16);
 
 container.addEventListener("mouseover", (event) => {
-    console.log(event.target);
     event.target.classList.add("painted");
 });
 
@@ -34,6 +33,18 @@ const submitbutton = document.querySelector("#submit-button");
 
 submitbutton.addEventListener("click", () => {
     const grid_size = document.querySelector("input").value;
-    generate_grid(grid_size);
-    popup.classList.add("hidden");
+    console.log(grid_size);
+    if ((grid_size > 100) || (grid_size < 0)) {
+        if (!document.querySelector("#popup-error")){
+            const popup_window = document.querySelector(".popup");
+            const content = document.createElement("div");
+            content.id = "popup-error";
+            content.style.color = "red";
+            content.appendChild(document.createTextNode("Enter a valid number between 0-100"));
+            popup_window.appendChild(content);
+        }
+    } else {
+        generate_grid(grid_size);
+        popup.classList.add("hidden");
+    }
 })
